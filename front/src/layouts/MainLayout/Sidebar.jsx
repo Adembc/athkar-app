@@ -16,40 +16,45 @@ const Sidebar = () => {
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/sleep",
+      text: "أذكار النوم",
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/wake-up",
+      text: "أذكار الإسيقاظ من النوم",
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/prayer",
+      text: "أذكار الصلاة",
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/after-prayer",
+      text: "أذكار بعد الصلاة",
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/roukia-qu",
+      text: "الرقية الشرعية من القرآن",
       icon: ImBook,
     },
     {
-      href: "/evening",
-      text: "أذكار المساء",
+      href: "/roukia-sn",
+      text: "الرقية الشرعية من السنة",
+      icon: ImBook,
+    },
+    {
+      href: "/other",
+      text: "أذكار متنوعة",
       icon: ImBook,
     },
   ];
   return (
     <nav className="sidebar">
       <SideNav routes={routes} />
-      <div className="legal">&copy; 2022 by Adem Bc. All rights reserved.</div>
+      <div className="legal">&copy; آدم بكّارة 2022</div>
     </nav>
   );
 };

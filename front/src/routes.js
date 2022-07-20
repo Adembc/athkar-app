@@ -31,12 +31,12 @@ const routes = [
   {
     path: "/",
     layout: MainLayout,
-    component: lazy(() => import("./views/Home")),
+    component: lazy(() => import("./views/Morning")),
   },
   {
     path: "/morning",
     layout: MainLayout,
-    component: lazy(() => import("./views//Home")),
+    component: lazy(() => import("./views/Morning")),
   },
   {
     path: "/evening",
@@ -44,9 +44,44 @@ const routes = [
     component: lazy(() => import("./views/Evening")),
   },
   {
+    path: "/sleep",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Sleep")),
+  },
+  {
+    path: "/wake-up",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Wakeup")),
+  },
+  {
+    path: "/prayer",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Morning")),
+  },
+  {
+    path: "/after-prayer",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Morning")),
+  },
+  {
+    path: "/roukia-qu",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Morning")),
+  },
+  {
+    path: "/roukia-sn",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Morning")),
+  },
+  {
+    path: "/other",
+    layout: MainLayout,
+    component: lazy(() => import("./views/Morning")),
+  },
+  {
     path: "*",
     layout: MainLayout,
-    component: lazy(() => import("./views/Home")),
+    component: lazy(() => import("./views/Morning")),
   },
 ];
 

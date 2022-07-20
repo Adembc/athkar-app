@@ -1,20 +1,23 @@
 import React from "react";
 
-function Azkar({ azkar }) {
+function Azkar({ azkar = [] }) {
   return (
     <div className="azkar">
-      {azkar.map((zikr) => {
-        return (
-          <div key={zikr.id} className="ziker">
-            <div className="ziker__content">{zikr.content}</div>
-            <div className="ziker__source">{zikr.source}</div>
-            <div className="ziker__description">{zikr.description}</div>
-            <span className="ziker__count">
-              {zikr.count.toString().padStart(2, "0")}
-            </span>
-          </div>
-        );
-      })}
+      {azkar.length > 0 &&
+        azkar.map((zikr, i) => {
+          return (
+            <div key={zikr._id || i} className="ziker">
+              <div className="ziker__content">{zikr.zekr}</div>
+              <div className="ziker__source">{zikr.reference}</div>
+              <div className="ziker__description">{zikr.description}</div>
+              {+zikr?.count > 0 && (
+                <span className="ziker__count">
+                  {zikr.count.toString().padStart(2, "0")}
+                </span>
+              )}
+            </div>
+          );
+        })}
     </div>
   );
 }
