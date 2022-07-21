@@ -56,27 +56,27 @@ const routes = [
   {
     path: "/prayer",
     layout: MainLayout,
-    component: lazy(() => import("./views/Morning")),
+    component: lazy(() => import("./views/Prayer")),
   },
   {
     path: "/after-prayer",
     layout: MainLayout,
-    component: lazy(() => import("./views/Morning")),
+    component: lazy(() => import("./views/AfterPrayer")),
   },
   {
     path: "/roukia-qu",
     layout: MainLayout,
-    component: lazy(() => import("./views/Morning")),
+    component: lazy(() => import("./views/RouqiaQ")),
   },
   {
     path: "/roukia-sn",
     layout: MainLayout,
-    component: lazy(() => import("./views/Morning")),
+    component: lazy(() => import("./views/RouqiaSn")),
   },
   {
     path: "/other",
     layout: MainLayout,
-    component: lazy(() => import("./views/Morning")),
+    component: lazy(() => import("./views/Other")),
   },
   {
     path: "*",

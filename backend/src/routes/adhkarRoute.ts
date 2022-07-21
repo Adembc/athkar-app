@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
-import { getAdhkar } from "../controller/adhkarController";
+import { customAdhkar, getAdhkar } from "../controller/adhkarController";
 const route = Router();
 
-route.route("/").get(getAdhkar);
+route.route("/").get(customAdhkar, getAdhkar);
 export default route;

@@ -14,14 +14,31 @@ export const getAllAdhkar = createAsyncThunk(
 );
 
 const initialState = {
-  adhkar: { morning: [], evening: [], sleep: [], wakeup: [] },
+  adhkar: {
+    morning: [],
+    evening: [],
+    sleep: [],
+    wakeup: [],
+    afterPrayer: [],
+    roukiaQ: [],
+    roukiaSn: [],
+    prayer: [],
+    other: [],
+  },
   loading: "",
 };
 
 const adhkarSlice = createSlice({
   name: "adhkar",
   initialState,
-  reducers: {},
+  reducers: {
+    // setCounter: (state, action) => {
+    //   state.adhkar[action.type][action.index].currentCount --;
+    // },
+    // resetCounter: (state, action) => {
+    //   state.adhkar[action.type][action.index].count --;
+    // },
+  },
   extraReducers: {
     [getAllAdhkar.pending]: (state) => {
       state.loading = "loading";

@@ -13,7 +13,6 @@ export default class AdhkarRepo {
       .sort()
       .paginate()
       .limitFields();
-
     return await features.query.lean();
   }
 }

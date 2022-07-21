@@ -14,7 +14,7 @@ function Home({ type, filter }) {
   }, [dispatch, adhkar, filterApi, type]);
   return (
     <main className="main">
-      <Azkar azkar={adhkar[type]} />
+      <Azkar azkar={adhkar[type]} type={type} />
     </main>
   );
 }
