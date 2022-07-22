@@ -1,25 +1,15 @@
 import React from "react";
 import groupBy from "../helper/groupby";
-import newLine from "../helper/newLine";
 import ScrollButton from "./ScrollToTop";
-
-function Content({ zikr }) {
-  return (
-    <>
-      <div className="ziker__content">{newLine(zikr.zekr)}</div>
-      <div className="ziker__source">{zikr.reference}</div>
-      <div className="ziker__description">{zikr.description}</div>
-      {+zikr?.count > 0 && (
-        <span className="ziker__count">
-          {zikr.count.toString().padStart(2, "0")}
-        </span>
-      )}
-    </>
-  );
-}
+import { adhkarActions } from "../redux/slice/adhkarSlice";
+import Dheker from "./Dheker";
+import { useDispatch } from "react-redux";
 
 function Azkar({ azkar = [], type }) {
-  const zikrCount = () => {};
+  const dispatch = useDispatch();
+  const countDown = (type, index) => {
+    dispatch(adhkarActions.setCount({ type, index }));
+  };
   if (["prayer", "other"].includes(type)) {
     azkar = groupBy(azkar, "category");
   }
@@ -38,10 +28,15 @@ function Azkar({ azkar = [], type }) {
                   return (
                     <div
                       key={zikr._id || i}
-                      className="ziker"
-                      onClick={zikrCount.bind(null, zikr.count)}
+                      className={`ziker ${zikr.done ? "done" : ""}`}
+                      onClick={(e) => {
+                        console.log(e);
+                        e.stopPropagation();
+                        e.nativeEvent.stopImmediatePropagation();
+                        countDown(type, i);
+                      }}
                     >
-                      <Content zikr={zikr}></Content>
+                      <Dheker zikr={zikr} type={type} index={i}></Dheker>
                     </div>
                   );
                 })}
@@ -53,10 +48,10 @@ function Azkar({ azkar = [], type }) {
             return (
               <div
                 key={zikr._id || i}
-                className="ziker"
-                onClick={zikrCount.bind(null, zikr.count)}
+                className={`ziker ${zikr.done ? "done" : ""}`}
+                onClick={countDown.bind(null, type, i)}
               >
-                <Content zikr={zikr}></Content>
+                <Dheker zikr={zikr} type={type} index={i}></Dheker>
               </div>
             );
           })}

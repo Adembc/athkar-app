@@ -8,7 +8,7 @@
   margin-top: 3.5rem;
 
   @media only screen and (max-width: $bp-medium) {
-    display: flex;
+    // display: flex;
     margin: 0;
   }
 
@@ -122,6 +122,13 @@
   border-radius: 1rem;
   font-size: 1.6rem;
   margin-bottom: 4rem;
+  &.done {
+    background-color: var(--color-grey-dark-1);
+    color: #fff;
+    & > div {
+      color: #fff;
+    }
+  }
   cursor: pointer;
   &__content {
     line-height: 1.8;
@@ -147,6 +154,7 @@
     line-height: 5rem;
     color: #fff;
     border: 1px solid #ccc;
+    cursor: pointer;
   }
   &__title {
     font-size: 2rem;
@@ -166,8 +174,12 @@
   border: none;
   border-radius: 50%;
   background-color: var(--color-grey-light-1);
+  z-index: 20;
   cursor: pointer;
   transition: 0.2s;
+  @media only screen and (max-width: $bp-medium) {
+    background-color: var(--color-grey-dark-1);
+  }
   & > svg {
     font-size: 2rem;
     color: var(--color-primary);

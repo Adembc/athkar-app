@@ -46,6 +46,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media only screen and (max-width: $bp-medium) {
+    position: relative;
+    height: auto;
+  }
 }
 
 .main {

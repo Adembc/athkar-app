@@ -25,6 +25,17 @@ const initialState = {
     prayer: [],
     other: [],
   },
+  adhkarCount: {
+    morning: [],
+    evening: [],
+    sleep: [],
+    wakeup: [],
+    afterPrayer: [],
+    roukiaQ: [],
+    roukiaSn: [],
+    prayer: [],
+    other: [],
+  },
   loading: "",
 };
 
@@ -32,12 +43,17 @@ const adhkarSlice = createSlice({
   name: "adhkar",
   initialState,
   reducers: {
-    // setCounter: (state, action) => {
-    //   state.adhkar[action.type][action.index].currentCount --;
-    // },
-    // resetCounter: (state, action) => {
-    //   state.adhkar[action.type][action.index].count --;
-    // },
+    setCount: (state, { payload: { type, index } }) => {
+      if (+state.adhkarCount[type][index] > 0) state.adhkarCount[type][index]--;
+      if (+state.adhkarCount[type][index] === 0)
+        state.adhkar[type][index].done = true;
+    },
+    resetCounter: (state, { payload: { type, index } }) => {
+      if (state.adhkarCount[type][index] > 0) return;
+      state.adhkarCount[type][index] =
+        +state.adhkar[type][index].count + 1 || 1;
+      state.adhkar[type][index].done = false;
+    },
   },
   extraReducers: {
     [getAllAdhkar.pending]: (state) => {
@@ -46,6 +62,9 @@ const adhkarSlice = createSlice({
     [getAllAdhkar.fulfilled]: (state, { payload }) => {
       state.loading = "success";
       state.adhkar[payload.type] = payload.data.payload;
+      state.adhkarCount[payload.type] = payload.data.payload.map((ele) =>
+        ele.count ? ele.count : 0
+      );
     },
     [getAllAdhkar.rejected]: (state, { payload }) => {
       state.error = payload;
@@ -53,5 +72,5 @@ const adhkarSlice = createSlice({
     },
   },
 });
-
+export const adhkarActions = adhkarSlice.actions;
 export default adhkarSlice.reducer;
