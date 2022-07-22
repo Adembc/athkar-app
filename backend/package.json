@@ -56,5 +56,8 @@
     "mongoose": "^6.4.5",
     "winston": "^3.7.2",
     "xss-clean": "^0.1.1"
+  },
+  "engines": {
+    "node": "^16"
   }
 }
