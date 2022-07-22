@@ -12,7 +12,9 @@ mongoose.connect(DB).then(() => {
 // run server
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log(`App running on port ${port}... ON ${process.env.NODE_ENV} MODE`);
+  console.log(
+    `App running on port  ${port}... ON ${process.env.NODE_ENV} MODE`
+  );
 });
 // error handling
 process.on("uncaughtException", (error: BaseError, res) => {
