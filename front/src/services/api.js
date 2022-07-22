@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "http://localhost:8000/api";
+const baseURL = "https://adhkar-app.herokuapp.com/api";
 export const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",

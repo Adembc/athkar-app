@@ -36,7 +36,7 @@ const initialState = {
     prayer: [],
     other: [],
   },
-  loading: "",
+  loading: false,
 };
 
 const adhkarSlice = createSlice({
@@ -57,10 +57,10 @@ const adhkarSlice = createSlice({
   },
   extraReducers: {
     [getAllAdhkar.pending]: (state) => {
-      state.loading = "loading";
+      state.loading = true;
     },
     [getAllAdhkar.fulfilled]: (state, { payload }) => {
-      state.loading = "success";
+      state.loading = false;
       state.adhkar[payload.type] = payload.data.payload;
       state.adhkarCount[payload.type] = payload.data.payload.map((ele) =>
         ele.count ? ele.count : 0
@@ -68,7 +68,7 @@ const adhkarSlice = createSlice({
     },
     [getAllAdhkar.rejected]: (state, { payload }) => {
       state.error = payload;
-      state.loading = "failed";
+      state.loading = false;
     },
   },
 });
